@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference type="Dtn\Api\Model\ProductRepository" for="Dtn\Api\Api\ProductRepositoryInterface" />
+    <preference type="Dtn\Api\Model\Data\Product" for="Dtn\Api\Api\Data\ProductInterface" />
+
+    <preference type="Dtn\Api\Model\Data\MyFirstApi" for="Dtn\Api\Api\MyFirstApiInterface" />
+
+</config>

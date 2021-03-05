@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dtn_Custom::main_menu"
+             title="Custom"
+             resource="Dtn_Custom::main_menu"
+             module="Dtn_Custom"
+             sortOrder="10"/>
+
+        <add id="Dtn_Custom::custom"
+             title="Custom"
+             module="Dtn_Custom"
+             sortOrder="10"
+             resource="Dtn_Custom::custom"
+             parent="Dtn_Custom::main_menu"
+             action="admincustom/custom/index"/>
+    </menu>
+</config>

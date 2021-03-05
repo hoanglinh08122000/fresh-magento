@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">imggirl_custom_from.image_listing_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <!-- Mapping Data  with Ui component -->
+    <settings>
+        <!-- Adding Save and Delete and other button at here -->
+        <buttons>
+            <button name="save" class="Tranning\Custom\Block\Adminhtml\Custom\Edit\SaveButton"/>
+            <button name="back" class="Tranning\Custom\Block\Adminhtml\Custom\Edit\BackButton"/>
+            <button name="reset" class="Tranning\Custom\Block\Adminhtml\Custom\Edit\ResetButton"/>
+        </buttons>
+        <namespace>imggirl_custom_from</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>imggirl_custom_from.image_listing_data_source</dep>
+        </deps>
+    </settings>
+    <!-- define Data source Name-->
+    <!-- source name formar == UIComponentFilename_data_source -->
+    <dataSource name="image_listing_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <!--Save Url -->
+            <submitUrl path="image/custom/save"/>
+        </settings>
+        <!-- Declare Data provide Php class and it user defined Class-->
+        <dataProvider class="Tranning\Custom\Ui\Custom\DataProvider"
+                      name="image_listing_data_source">
+            <settings>
+                <!-- Url parameter name for getting  which corresponding to Db
+                table primary
+                -->
+                <requestFieldName>custom_id</requestFieldName>
+                <primaryFieldName>custom_id</primaryFieldName><!-- Db table primary key -->
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <!-- Add Field to Edit Form -->
+    <!-- FieldSet name is user Defined -->
+    <fieldset name="tranning_custom">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">Employee</item>
+                <item name="sortOrder" xsi:type="number">0</item>
+            </item>
+        </argument>
+        <field name="title" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!-- source is user defined -->
+                    <item name="source" xsi:type="string">imggirl_custom_from</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Title</label>
+                <dataScope>title</dataScope>
+            </settings>
+        </field>
+        <field name="content" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!-- source is user defined -->
+                    <item name="source" xsi:type="string">imggirl_custom_from</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Content</label>
+                <dataScope>content</dataScope>
+            </settings>
+        </field>
+        <field name="author" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!-- source is user defined -->
+                    <item name="source" xsi:type="string">imggirl_custom_from</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Author</label>
+                <dataScope>author</dataScope>
+            </settings>
+        </field>
+
+        <field name="status" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!-- source is user defined -->
+                    <item name="source" xsi:type="string">imggirl_custom_from</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Status</label>
+                <dataScope>status</dataScope>
+            </settings>
+        </field>
+<!--        <field name="image" formElement="input">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    &lt;!&ndash; source is user defined &ndash;&gt;-->
+<!--                    <item name="source" xsi:type="string">imggirl_custom_from</item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--            <settings>-->
+<!--                <validation>-->
+<!--                    <rule name="required-entry" xsi:type="boolean">true</rule>-->
+<!--                </validation>-->
+<!--                <dataType>upload</dataType>-->
+<!--                <label translate="true">image</label>-->
+<!--                <dataScope>image</dataScope>-->
+<!--            </settings>-->
+<!--        </field>-->
+        <field name="status">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Enable Topic</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="source" xsi:type="string">faqs</item>
+                    <item name="sortOrder" xsi:type="number">15</item>
+                    <item name="dataScope" xsi:type="string">status</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+        </field>
+        <field name="image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="source" xsi:type="string">FaqGroup</item>
+                    <item name="label" xsi:type="string" translate="true">Group Image</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">Tranning_Custom/image-preview</item>
+                    <item name="required" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="image/custom/upload"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

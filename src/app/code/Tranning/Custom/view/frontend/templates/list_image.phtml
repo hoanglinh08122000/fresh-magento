@@ -1,0 +1,88 @@
+<?php
+/**
+ * @var Custom $block
+ */
+use Tranning\Custom\Block\Custom;
+?>
+<a href="<?= $block->getBaseUrl() . 'custom/index/from' ?>">
+    <button>Add</button>
+</a>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .post-id {
+        width: 2%
+    }
+
+    .post-name {
+        width: 30%
+    }
+
+</style>
+
+<!-- table information department-->
+<table>
+    <thead>
+    <tr>
+        <th class="custom_id">Id</th>
+        <th class="title">Title</th>
+        <th class="author">Author</th>
+        <th class="content">Content</th>
+        <th class="image">Image</th>
+<!--        <th class="action">Action</th>-->
+    </tr>
+    </thead>
+
+    <tbody>
+    <?php foreach ($block->getCustom() as $key => $post): ?>
+        <tr>
+            <td>
+                <?php echo $post->getCustomId(); ?>
+            </td>
+            <td>
+                <?php echo $post->getTitle(); ?>
+            </td>
+            <td>
+                <?php echo $post->getAuthor(); ?>
+            </td>
+            <td>
+                <?php echo $post->getContent(); ?>
+            </td>
+            <td>
+                <?php if ($post->getImage()): ?>
+                    <img width="250" height="150" src="<?php echo $block->getBaseUrl().'pub/media/'.$post->getImage(); ?>">
+                <?php else: ?>
+                    <p>No Image</p>
+                <?php endif; ?>
+            </td>
+<!--            <td>-->
+<!--                <a class="action primary"-->
+<!--                   href="">-->
+<!--                    Delete-->
+<!--                </a>-->
+<!--                <a class="action primary"-->
+<!--                   href="">-->
+<!--                    Update-->
+<!--                </a>-->
+<!--            </td>-->
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+
+</table>

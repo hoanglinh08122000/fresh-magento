@@ -1,0 +1,14 @@
+{
+    "name": "vendor_name/Dtn",
+    "description": "description",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "hoanglinh08122000",
+            "email": "email@example.com"
+        }
+    ],
+    "require": {
+    }
+}
